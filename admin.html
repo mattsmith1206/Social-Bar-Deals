@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Social — Admin</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { padding: 16px 16px 80px; max-width: 720px; }
+    h1 { margin: 8px 0 4px; } .sub { color: var(--muted); margin: 0 0 16px; font-size: 14px; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .bar-item { display: flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; margin-bottom: 8px; }
+    .bar-item .n { flex: 1; font-weight: 700; } .bar-item small { display: block; color: var(--muted); font-weight: 500; }
+    form { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px; margin: 16px 0; }
+    label { display: block; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 12px 0 4px; }
+    input, select, textarea { width: 100%; font: inherit; color: var(--text); background: var(--bg2); border: 1px solid var(--line); border-radius: 10px; padding: 10px; min-height: 44px; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; } .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .deal-ed { border: 1px dashed var(--line); border-radius: 14px; padding: 12px; margin-top: 12px; background: var(--bg2); }
+    .days { display: flex; gap: 6px; flex-wrap: wrap; }
+    .days label { margin: 0; display: flex; align-items: center; gap: 4px; text-transform: none; letter-spacing: 0; font-size: 14px; color: var(--text); background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; }
+    .days input { width: auto; min-height: 0; }
+    .hint { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .row-end { display: flex; justify-content: space-between; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="fine">← Back to Social</a>
+  <h1>Admin</h1>
+  <p class="sub">Add bars once, with their weekly specials. Changes save on <b>this device</b> right away. To publish for everyone, click <b>Download data file</b> and replace <code>data/&lt;city&gt;.js</code> in the project.</p>
+
+  <div class="toolbar">
+    <select id="citySel" style="width:auto"></select>
+    <button class="btn primary" id="addBar">+ Add bar</button>
+    <button class="btn" id="dlJs">Download data file</button>
+    <button class="btn" id="dlJson">Export JSON</button>
+    <label class="btn" style="margin:0;display:grid;place-items:center;text-transform:none;letter-spacing:0;font-size:16px;color:var(--text)">Import JSON<input type="file" id="importFile" accept=".json,application/json" hidden></label>
+    <button class="btn danger" id="reset">Reset to bundled data</button>
+  </div>
+
+  <div id="editor"></div>
+  <div id="list"></div>
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="data/athens.js"></script>
+  <script src="core.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
